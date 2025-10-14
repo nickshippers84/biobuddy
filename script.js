@@ -268,32 +268,44 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Support chatbot functionality - New approach
+    // Support chatbot functionality - Enhanced debugging
     const supportChatbot = document.getElementById('supportChatbot');
     if (supportChatbot) {
         supportChatbot.addEventListener('click', function() {
             console.log('Support button clicked');
             
-            // Wait for Zendesk to be fully loaded
-            if (typeof window.zE !== 'undefined') {
-                console.log('Zendesk loaded, opening chat...');
+            // Check if Zendesk script is loaded
+            if (typeof window.zE === 'undefined') {
+                console.log('Zendesk not loaded, attempting to load...');
+                
+                // Try to load Zendesk manually
+                const script = document.createElement('script');
+                script.id = 'ze-snippet';
+                script.src = 'https://static.zdassets.com/ekr/snippet.js?key=f0edbbee-52c7-4b91-94a5-a96c44eabce4';
+                script.onload = function() {
+                    console.log('Zendesk script loaded manually');
+                    setTimeout(() => {
+                        if (typeof window.zE !== 'undefined') {
+                            window.zE('webWidget', 'open');
+                        }
+                    }, 1000);
+                };
+                script.onerror = function() {
+                    console.log('Failed to load Zendesk script');
+                    alert('Chat support is temporarily unavailable. Please try again later or contact us directly.');
+                };
+                document.head.appendChild(script);
+                return;
+            }
+            
+            // Zendesk is loaded, try to open
+            console.log('Zendesk loaded, opening chat...');
+            try {
                 window.zE('webWidget', 'open');
-            } else {
-                // If Zendesk isn't loaded yet, wait and try again
-                console.log('Zendesk not loaded, waiting...');
-                let attempts = 0;
-                const checkZendesk = setInterval(() => {
-                    attempts++;
-                    if (typeof window.zE !== 'undefined') {
-                        console.log('Zendesk loaded after', attempts, 'attempts');
-                        window.zE('webWidget', 'open');
-                        clearInterval(checkZendesk);
-                    } else if (attempts > 20) {
-                        console.log('Zendesk failed to load after 20 attempts');
-                        alert('Chat support is temporarily unavailable. Please try again later or contact us directly.');
-                        clearInterval(checkZendesk);
-                    }
-                }, 500);
+                console.log('Chat widget opened successfully');
+            } catch (error) {
+                console.log('Error opening chat widget:', error);
+                alert('Chat support is temporarily unavailable. Please try again later or contact us directly.');
             }
         });
     }
