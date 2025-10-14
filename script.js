@@ -268,83 +268,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Support chatbot functionality - Enhanced debugging
-    const supportChatbot = document.getElementById('supportChatbot');
-    if (supportChatbot) {
-        supportChatbot.addEventListener('click', function() {
-            console.log('Support button clicked');
-            
-            // Check if Zendesk script is loaded
-            if (typeof window.zE === 'undefined') {
-                console.log('Zendesk not loaded, attempting to load...');
-                
-                // Try to load Zendesk manually
-                const script = document.createElement('script');
-                script.id = 'ze-snippet';
-                script.src = 'https://static.zdassets.com/ekr/snippet.js?key=f0edbbee-52c7-4b91-94a5-a96c44eabce4';
-                script.onload = function() {
-                    console.log('Zendesk script loaded manually');
-                    setTimeout(() => {
-                        if (typeof window.zE !== 'undefined') {
-                            window.zE('webWidget', 'open');
-                        }
-                    }, 1000);
-                };
-                script.onerror = function() {
-                    console.log('Failed to load Zendesk script');
-                    alert('Chat support is temporarily unavailable. Please try again later or contact us directly.');
-                };
-                document.head.appendChild(script);
-                return;
-            }
-            
-            // Zendesk is loaded, try to open
-            console.log('Zendesk loaded, opening chat...');
-            try {
-                window.zE('webWidget', 'open');
-                console.log('Chat widget opened successfully');
-            } catch (error) {
-                console.log('Error opening chat widget:', error);
-                alert('Chat support is temporarily unavailable. Please try again later or contact us directly.');
-            }
-        });
-    }
+    // Zendesk handles its own chat functionality
 
-    // Initialize Zendesk when ready
-    window.addEventListener('load', function() {
-        console.log('Page loaded, initializing Zendesk...');
-        
-        // Wait a bit for Zendesk to initialize
-        setTimeout(() => {
-            if (typeof window.zE !== 'undefined') {
-                console.log('Configuring Zendesk widget...');
-                
-                // Configure the widget
-                window.zE('webWidget', 'updateSettings', {
-                    webWidget: {
-                        color: { theme: '#136cf0' },
-                        launcher: {
-                            chatLabel: {
-                                'en-US': 'Need help with BioBuddy?'
-                            }
-                        }
-                    }
-                });
-                
-                // Hide the default launcher
-                window.zE('webWidget', 'hide');
-                
-                // Position the widget
-                window.zE('webWidget', 'position', { 
-                    horizontal: 'right', 
-                    vertical: 'bottom' 
-                });
-                
-                console.log('Zendesk configured successfully');
-            } else {
-                console.log('Zendesk not available');
-            }
-        }, 2000);
-    });
+    // Let Zendesk handle everything automatically
+    // No custom initialization needed
 
 });

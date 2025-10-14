@@ -532,108 +532,9 @@ body {
     transform: translateY(-2px);
 }
 
-/* Support Chatbot */
-.support-chatbot {
-    position: fixed !important;
-    bottom: 20px !important;
-    right: 20px !important;
-    z-index: 1001 !important;
-    background: var(--success-green);
-    color: var(--white);
-    border: none;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    box-shadow: 0 4px 20px rgba(46, 139, 87, 0.3);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.4rem;
-}
+/* Zendesk handles its own chat button styling */
 
-.support-chatbot:hover {
-    background: var(--accent-orange);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 25px rgba(240, 151, 18, 0.4);
-}
-
-.chatbot-pulse {
-    position: absolute;
-    top: -5px;
-    right: -5px;
-    width: 16px;
-    height: 16px;
-    background: var(--accent-orange);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-}
-
-.chatbot-pulse::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--accent-orange);
-    border-radius: 50%;
-    animation: pulse-ring 2s infinite;
-}
-
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.1);
-        opacity: 0.8;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-@keyframes pulse-ring {
-    0% {
-        transform: scale(0.8);
-        opacity: 1;
-    }
-    100% {
-        transform: scale(2);
-        opacity: 0;
-    }
-}
-
-/* Hide default Zendesk launcher button and status */
-#launcher {
-    display: none !important;
-}
-
-/* Hide Zendesk status messages */
-.zE-launcher {
-    display: none !important;
-}
-
-.zE-launcher__status {
-    display: none !important;
-}
-
-/* Hide any Zendesk floating elements */
-[data-testid="launcher"] {
-    display: none !important;
-}
-
-.zE-widget {
-    display: none !important;
-}
-
-.zE-widget__launcher {
-    display: none !important;
-}
+/* Let Zendesk handle its own styling and positioning */
 
 
 /* Responsive adjustments for floating elements */
@@ -646,13 +547,6 @@ body {
         font-size: 1rem;
     }
     
-    .support-chatbot {
-        bottom: 20px;
-        right: 15px;
-        width: 55px;
-        height: 55px;
-        font-size: 1.2rem;
-    }
     
 }
 
