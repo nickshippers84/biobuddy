@@ -22,7 +22,7 @@ body {
     font-family: 'Inter', sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
-    background-color: var(--white);
+    background-color: #f1f3f4;
 }
 
 .container {
@@ -532,6 +532,62 @@ body {
     transform: translateY(-2px);
 }
 
+/* Mobile Showcase Styling */
+.mobile-showcase {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 3rem 0;
+    padding: 2rem;
+}
+
+.mobile-image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mobile-showcase-image {
+    max-width: 600px;
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 10px 30px rgba(19, 108, 240, 0.3));
+    transition: transform 0.3s ease;
+    mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, black 0%, black 85%, transparent 100%);
+}
+
+.mobile-showcase-image:hover {
+    transform: scale(1.05);
+}
+
+.glow-effect {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 800px;
+    height: 800px;
+    background: radial-gradient(circle, rgba(19, 108, 240, 0.4) 0%, rgba(19, 108, 240, 0.25) 30%, rgba(19, 108, 240, 0.15) 50%, rgba(19, 108, 240, 0.08) 70%, transparent 85%);
+    border-radius: 50%;
+    animation: pulse-glow 3s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes pulse-glow {
+    0%, 100% {
+        opacity: 0.8;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.15);
+    }
+}
+
 /* Zendesk handles its own chat button styling */
 
 /* Let Zendesk handle its own styling and positioning */
@@ -547,7 +603,19 @@ body {
         font-size: 1rem;
     }
     
+    .mobile-showcase {
+        margin: 2rem 0;
+        padding: 1rem;
+    }
     
+    .mobile-showcase-image {
+        max-width: 500px;
+    }
+    
+    .glow-effect {
+        width: 600px;
+        height: 600px;
+    }
 }
 
 
