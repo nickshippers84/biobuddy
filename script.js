@@ -273,4 +273,31 @@ document.addEventListener('DOMContentLoaded', function() {
     // Let Zendesk handle everything automatically
     // No custom initialization needed
 
+    // Mobile image scroll animation
+    const mobileImageContainer = document.querySelector('.mobile-image-container');
+    const featuresSection = document.querySelector('.features');
+    
+    if (mobileImageContainer && featuresSection) {
+        console.log('Mobile image animation initialized');
+        
+        window.addEventListener('scroll', () => {
+            const scrollY = window.pageYOffset;
+            const featuresSectionTop = featuresSection.offsetTop;
+            const heroSectionHeight = document.querySelector('.hero').offsetHeight;
+            
+            console.log('Scroll Y:', scrollY, 'Features Top:', featuresSectionTop, 'Hero Height:', heroSectionHeight);
+            
+            // Trigger animation when scrolled past hero section
+            if (scrollY > heroSectionHeight * 0.5) {
+                console.log('Adding animate-grow class');
+                mobileImageContainer.classList.add('animate-grow');
+            } else {
+                console.log('Removing animate-grow class');
+                mobileImageContainer.classList.remove('animate-grow');
+            }
+        });
+    } else {
+        console.log('Elements not found:', { mobileImageContainer, featuresSection });
+    }
+
 });
