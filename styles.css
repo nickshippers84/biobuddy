@@ -1653,13 +1653,8 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Support Page Styles */
-.support-hero {
-    padding: 140px 0 80px;
-    text-align: center;
-}
-
 .support-options {
-    padding: 80px 0;
+    padding: 120px 0 80px;
     background: var(--white);
 }
 
