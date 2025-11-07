@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BioBuddy - See Biology Come to Life</title>
     <link rel="stylesheet" href="styles.css?v=26">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     
     <!-- Start of biobuddy Zendesk Widget script -->
@@ -14,42 +14,20 @@
 </head>
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-left">
-                <div class="nav-logo">
-                    <img src="img/biobuddy_icon_128x128.png" alt="BioBuddy" class="nav-logo-img">
-                </div>
-                <div class="nav-links">
-                    <a href="#features" class="nav-link">Features <i class="fas fa-chevron-down"></i></a>
-                    <a href="#demo" class="nav-link">Demo <i class="fas fa-chevron-down"></i></a>
-                    <a href="#pricing" class="nav-link">Pricing <i class="fas fa-chevron-down"></i></a>
-                    <a href="#" class="nav-link">Blog</a>
-                    <a href="#" class="nav-link">Help</a>
-                </div>
-            </div>
-            <div class="nav-right">
-                <a href="https://www.youtube.com/watch?v=F0vJIVMEZmg" target="_blank" class="nav-demo-link">
-                    <i class="fab fa-youtube"></i>
-                    Watch a Demo
-                </a>
-                <a href="https://learn.biobuddy.com/" class="btn-login-large">Log In</a>
-                <a href="https://learn.biobuddy.com/register" class="btn-signup-large">Sign Up</a>
-            </div>
-        </div>
-    </nav>
+    <!-- Navigation will be loaded here -->
+    <script src="load-nav.js"></script>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="hero-content">
                 <div class="user-toggle">
-                    <button class="toggle-btn-large active" data-target="educator">Educators</button>
-                    <button class="toggle-btn-large" data-target="student">Students</button>
+                    <a href="#demo" class="toggle-btn-large active" data-target="educator">Educators</a>
+                    <a href="#students" class="toggle-btn-large" data-target="student">Students</a>
                 </div>
                 
-                <h1 class="hero-title-large">Get Your Biology<br>A-Game</h1>
+                <h1 class="hero-title-large">Get On Your Biology<br>A-Game</h1>
+                <p class="hero-subtitle">Made by PhDs and 3D STEM Animators</p>
                 
                 <div class="mobile-showcase">
                     <div class="mobile-image-container">
@@ -63,41 +41,6 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section id="features" class="features">
-        <div class="container">
-            <div class="section-header">
-                <h2>Designed to the AP Biology Curriculum</h2>
-                <p>The most immersive biology learning platform created by PhDs and 3D animators.</p>
-            </div>
-            
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-play-circle"></i>
-                    </div>
-                    <h3>7 Hours of Animated Lecture Videos</h3>
-                    <p>Join Taylor, our on-screen instructor and our curriculum experts, to bring biology to life with expert-vetted animations.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-question-circle"></i>
-                    </div>
-                    <h3>Memory-boosting Quizzes with Tutor Walkthrough</h3>
-                    <p>50+ Animated Videos & Quizzes with Explanations, explaining every quiz question.</p>
-                </div>
-                
-                <div class="feature-card">
-                    <div class="feature-icon">
-                        <i class="fas fa-cube"></i>
-                    </div>
-                    <h3>Pinch & Zoom: 3D Eukaryotic Cell Model</h3>
-                    <p>Interactive Cell Exploration - Intuitive pinch-and-zoom reveals detailed cell structures clearly and quickly.</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Video Showcase Section -->
     <section id="demo" class="video-section">
@@ -141,16 +84,77 @@
             </div>
             
             <div class="video-cta">
-                <h3>Ready to bring this experience to your classroom?</h3>
+                <h3>Join 1,000 biology teachers using BioBuddy</h3>
                 <div class="video-buttons">
-                    <button class="btn-primary btn-large">
+                    <a href="https://learn.biobuddy.com/register?utm_source=biobuddy-homepage-starttrial" target="_blank" class="btn-primary btn-large">
                         <i class="fas fa-rocket"></i>
                         Start Free Trial
-                    </button>
-                    <button class="btn-secondary btn-large">
+                    </a>
+                    <a href="https://calendly.com/nick-biobuddy/30min" target="_blank" class="btn-secondary btn-large">
                         <i class="fas fa-calendar"></i>
                         Schedule Demo
-                    </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Designed to the AP Biology Curriculum</h2>
+                <p>The most immersive biology learning platform created by PhDs and 3D animators.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-play-circle"></i>
+                    </div>
+                    <h3>7 Hours of Animated Lecture Videos</h3>
+                    <p>Join Taylor, our on-screen instructor and our curriculum experts, to bring biology to life with expert-vetted animations.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>Memory-boosting Quizzes with Tutor Walkthrough</h3>
+                    <p>50+ Animated Videos & Quizzes with Explanations, explaining every quiz question.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Pinch & Zoom: 3D Eukaryotic Cell Model</h3>
+                    <p>Interactive Cell Exploration - Intuitive pinch-and-zoom reveals detailed cell structures clearly and quickly.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                    </div>
+                    <h3>LIVE Test Prep Sessions</h3>
+                    <p>Join live review sessions with expert instructors to prepare for the AP Biology exam with real-time Q&A and practice problems.</p>
+                </div>
+                
+                <div class="feature-card coming-soon">
+                    <div class="feature-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <div class="coming-soon-badge">Coming Soon</div>
+                    <h3>BioBuddy Labs</h3>
+                    <p>Interactive virtual laboratory experiences that bring hands-on experiments to your classroom with 3D simulations and guided protocols.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>AP Biology Curriculum Aligned</h3>
+                    <p>Every lesson, quiz, and activity is designed specifically around the College Board's AP Biology curriculum framework for maximum exam success.</p>
                 </div>
             </div>
         </div>
@@ -258,15 +262,15 @@
                     <div class="benefit-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h4>Trusted by 500+ Educators</h4>
+                    <h4>Trusted by 1,000+ Educators</h4>
                     <p>Join a growing community of biology teachers who are transforming their classrooms.</p>
                 </div>
                 <div class="benefit-item">
                     <div class="benefit-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
-                    <h4>Proven Results</h4>
-                    <p>Students using BioBuddy show 40% improvement in AP Biology exam scores.</p>
+                    <h4>90% Approve</h4>
+                    <p>Early Adopter Educators believe BioBuddy can be a text-book replacement.</p>
                 </div>
                 <div class="benefit-item">
                     <div class="benefit-icon">
@@ -280,7 +284,7 @@
     </section>
 
     <!-- Student Pricing Section -->
-    <section class="student-pricing-section">
+    <section id="students" class="student-pricing-section">
         <div class="container">
             <div class="section-header">
                 <h2>For Students: Ace the AP Bio Exam</h2>
@@ -296,7 +300,7 @@
                             <span class="amount">65.00</span>
                             <span class="period">12-month membership</span>
                         </div>
-                        <p class="pricing-description">Get full access to bring your biology learning to life.</p>
+                        <p class="pricing-description">Get your AP Bio A-game with LIVE test prep</p>
                     </div>
                     
                     <div class="pricing-features">
@@ -362,7 +366,7 @@
                 <h2>Ready to Transform Your Biology Learning?</h2>
                 <p>Choose the plan that's right for you and start your journey to mastering biology today.</p>
                 <div class="cta-buttons">
-                    <button class="btn-primary btn-large">Get Started Now</button>
+                    <a href="https://learn.biobuddy.com/" target="_blank" class="btn-primary btn-large">Get Started Now</a>
                     <a href="https://calendly.com/nick-biobuddy/30min" target="_blank" class="btn-outline btn-large">Schedule Demo</a>
                 </div>
             </div>
@@ -375,7 +379,7 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <h3>BioBuddy</h3>
-                    <p>See Biology Come to Life</p>
+                    <p>Get On Your Biology A-Game</p>
                 </div>
                 <div class="footer-links">
                     <div class="footer-column">
@@ -388,18 +392,16 @@
                         <h4>Support</h4>
                         <a href="#">Help Center</a>
                         <a href="#">Contact</a>
-                        <a href="#">API Docs</a>
                     </div>
                     <div class="footer-column">
                         <h4>Company</h4>
                         <a href="#">About</a>
-                        <a href="#">Careers</a>
                         <a href="#">Blog</a>
                     </div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 BioBuddy. All rights reserved.</p>
+                <p>&copy; <span id="currentYear">2024</span> BioBuddy. All rights reserved.</p>
             </div>
         </div>
     </footer>
@@ -410,6 +412,28 @@
     </button>
 
     <!-- Zendesk will provide its own chat button -->
+
+    <!-- Demo Video Modal -->
+    <div id="demoModal" class="demo-modal">
+        <div class="demo-modal-content">
+            <div class="demo-modal-header">
+                <h3>BioBuddy Demo</h3>
+                <button class="demo-modal-close" id="closeDemoModal">&times;</button>
+            </div>
+            <div class="demo-modal-body">
+                <div class="demo-video-wrapper">
+                    <iframe 
+                        id="demoVideo" 
+                        src="" 
+                        title="BioBuddy Demo Video" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>

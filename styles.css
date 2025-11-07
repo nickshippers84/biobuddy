@@ -25,6 +25,18 @@ body {
     background-color: #f1f3f4;
 }
 
+/* Montserrat for headings */
+h1, h2, h3, h4, h5, h6,
+.hero-title-large,
+.hero-subtitle,
+.section-header h2,
+.feature-card h3,
+.benefit-item h4,
+.pricing-header h3,
+.cta-content h2 {
+    font-family: 'Montserrat', sans-serif;
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
@@ -61,6 +73,12 @@ body {
 .nav-logo {
     display: flex;
     align-items: center;
+}
+
+.nav-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
 }
 
 .nav-logo-img {
@@ -287,12 +305,21 @@ body {
 }
 
 .hero-title-large {
-    font-size: 7rem;
+    font-size: 5.5rem;
     font-weight: 700;
-    line-height: 1.0;
-    margin-bottom: 3rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
     color: var(--text-dark);
     text-align: center;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-light);
+    text-align: center;
+    margin-bottom: 3rem;
+    line-height: 1.4;
 }
 
 .user-toggle {
@@ -311,6 +338,11 @@ body {
     cursor: pointer;
     transition: all 0.3s ease;
     border-radius: 0;
+    text-decoration: none;
+}
+
+.toggle-btn-large:hover {
+    text-decoration: none;
 }
 
 .toggle-btn-large:first-child {
@@ -543,7 +575,6 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.3s ease-out;
 }
 
 .mobile-showcase-image {
@@ -586,34 +617,111 @@ body {
     }
 }
 
-/* Mobile image animation states */
-.mobile-image-container.animate-grow {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    z-index: 9999 !important;
-    background: rgba(241, 243, 244, 0.95) !important;
-    backdrop-filter: blur(10px);
-    margin: 0 !important;
-    padding: 0 !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+
+/* Demo Video Modal */
+.demo-modal {
+    display: none;
+    position: fixed;
+    z-index: 10000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
 }
 
-.mobile-image-container.animate-grow .mobile-showcase-image {
-    max-width: 80vw !important;
-    max-height: 80vh !important;
-    width: auto !important;
-    height: auto !important;
+.demo-modal-content {
+    background-color: var(--white);
+    margin: 2% auto;
+    padding: 0;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
-.mobile-image-container.animate-grow .glow-effect {
-    width: 1000px !important;
-    height: 1000px !important;
-    opacity: 0.4 !important;
+.demo-modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.demo-modal-header h3 {
+    margin: 0;
+    color: var(--text-dark);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.demo-modal-close {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    color: var(--text-light);
+    cursor: pointer;
+    padding: 0;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+.demo-modal-close:hover {
+    background-color: var(--light-gray);
+    color: var(--text-dark);
+}
+
+.demo-modal-body {
+    padding: 0;
+}
+
+.demo-video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+    border-radius: 0 0 12px 12px;
+}
+
+.demo-video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .demo-modal-content {
+        width: 95%;
+        margin: 5% auto;
+        max-height: 85vh;
+    }
+    
+    .demo-modal-header {
+        padding: 16px 20px;
+    }
+    
+    .demo-modal-header h3 {
+        font-size: 1.25rem;
+    }
+    
+    .demo-modal-close {
+        font-size: 1.5rem;
+        width: 28px;
+        height: 28px;
+    }
 }
 
 /* Zendesk handles its own chat button styling */
@@ -753,7 +861,7 @@ body {
 
 .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
 }
 
@@ -793,6 +901,26 @@ body {
     font-weight: 600;
     color: var(--text-dark);
     margin-bottom: 1rem;
+}
+
+.feature-card.coming-soon {
+    position: relative;
+    opacity: 0.9;
+}
+
+.coming-soon-badge {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--accent-orange);
+    color: var(--white);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    z-index: 2;
 }
 
 .feature-card p {
@@ -1276,7 +1404,7 @@ body {
 }
 
 .student-pricing-card .feature-item span {
-    color: var(--white);
+    color: var(--text-dark);
     font-weight: 500;
     line-height: 1.5;
 }
@@ -1452,6 +1580,16 @@ body {
         font-size: 2.5rem;
     }
     
+    .hero-title-large {
+        font-size: 3.5rem;
+        line-height: 1.2;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+    }
+    
     .beta-content {
         grid-template-columns: 1fr;
         text-align: center;
@@ -1511,5 +1649,235 @@ body {
     
     .feature-card {
         padding: 1.5rem;
+    }
+}
+
+/* Support Page Styles */
+.support-hero {
+    padding: 140px 0 80px;
+    text-align: center;
+}
+
+.support-options {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.support-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.support-card {
+    background: var(--white);
+    border: 2px solid var(--light-gray);
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.support-card:hover {
+    border-color: var(--primary-blue);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
+.support-card.coming-soon-card {
+    opacity: 0.8;
+}
+
+.support-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1.5rem;
+    color: var(--primary-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.line-graphic {
+    width: 100%;
+    height: 100%;
+}
+
+.support-card h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.support-card p {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.support-card .btn-primary,
+.support-card .btn-secondary,
+.support-card .btn-outline {
+    width: 100%;
+    margin-top: auto;
+}
+
+.support-card .btn-outline:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.coming-soon-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--accent-orange);
+    color: var(--white);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.support-form-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.form-container {
+    max-width: 700px;
+    margin: 0 auto;
+    background: var(--white);
+    border-radius: 16px;
+    padding: 3rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 2.5rem;
+}
+
+.form-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+}
+
+.form-header p {
+    color: var(--text-light);
+}
+
+.support-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 0.875rem 1rem;
+    border: 2px solid var(--light-gray);
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: var(--white);
+    color: var(--text-dark);
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(19, 108, 240, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231a1a1a' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
+
+.form-message {
+    display: none;
+    margin-top: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.form-success {
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-success i {
+    font-size: 1.5rem;
+    color: var(--success-green);
+}
+
+.form-note {
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+}
+
+.form-note a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.form-note a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Support Page */
+@media (max-width: 768px) {
+    .support-cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-container {
+        padding: 2rem 1.5rem;
+    }
+
+    .form-header h2 {
+        font-size: 1.75rem;
     }
 }

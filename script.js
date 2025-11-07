@@ -273,31 +273,52 @@ document.addEventListener('DOMContentLoaded', function() {
     // Let Zendesk handle everything automatically
     // No custom initialization needed
 
-    // Mobile image scroll animation
-    const mobileImageContainer = document.querySelector('.mobile-image-container');
-    const featuresSection = document.querySelector('.features');
-    
-    if (mobileImageContainer && featuresSection) {
-        console.log('Mobile image animation initialized');
-        
-        window.addEventListener('scroll', () => {
-            const scrollY = window.pageYOffset;
-            const featuresSectionTop = featuresSection.offsetTop;
-            const heroSectionHeight = document.querySelector('.hero').offsetHeight;
-            
-            console.log('Scroll Y:', scrollY, 'Features Top:', featuresSectionTop, 'Hero Height:', heroSectionHeight);
-            
-            // Trigger animation when scrolled past hero section
-            if (scrollY > heroSectionHeight * 0.5) {
-                console.log('Adding animate-grow class');
-                mobileImageContainer.classList.add('animate-grow');
-            } else {
-                console.log('Removing animate-grow class');
-                mobileImageContainer.classList.remove('animate-grow');
+    // Auto-update copyright year
+    const currentYearElement = document.getElementById('currentYear');
+    if (currentYearElement) {
+        currentYearElement.textContent = new Date().getFullYear();
+    }
+
+    // Demo video modal functionality
+    const watchDemoBtn = document.getElementById('watchDemoBtn');
+    const demoModal = document.getElementById('demoModal');
+    const closeDemoModal = document.getElementById('closeDemoModal');
+    const demoVideo = document.getElementById('demoVideo');
+
+    if (watchDemoBtn && demoModal && closeDemoModal && demoVideo) {
+        // Open modal
+        watchDemoBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            demoModal.style.display = 'block';
+            // Load the video when modal opens
+            demoVideo.src = 'https://www.youtube.com/embed/F0vJIVMEZmg?autoplay=1';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        });
+
+        // Close modal
+        closeDemoModal.addEventListener('click', function() {
+            demoModal.style.display = 'none';
+            demoVideo.src = ''; // Stop video when modal closes
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        });
+
+        // Close modal when clicking outside
+        demoModal.addEventListener('click', function(e) {
+            if (e.target === demoModal) {
+                demoModal.style.display = 'none';
+                demoVideo.src = ''; // Stop video when modal closes
+                document.body.style.overflow = 'auto'; // Restore scrolling
             }
         });
-    } else {
-        console.log('Elements not found:', { mobileImageContainer, featuresSection });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && demoModal.style.display === 'block') {
+                demoModal.style.display = 'none';
+                demoVideo.src = ''; // Stop video when modal closes
+                document.body.style.overflow = 'auto'; // Restore scrolling
+            }
+        });
     }
 
 });

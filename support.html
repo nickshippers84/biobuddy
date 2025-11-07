@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - BioBuddy</title>
+    <link rel="stylesheet" href="styles.css?v=26">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Start of biobuddy Zendesk Widget script -->
+    <script id="ze-snippet" src="https://static.zdassets.com/ekr/snippet.js?key=f0edbbee-52c7-4b91-94a5-a96c44eabce4"> </script>
+    <!-- End of biobuddy Zendesk Widget script -->
+</head>
+<body>
+
+    <!-- Navigation will be loaded here -->
+    <script src="load-nav.js"></script>
+
+    <!-- Hero Section -->
+    <section class="hero support-hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title-large">How Can We Help?</h1>
+                <p class="hero-subtitle">Get the support you need to make the most of BioBuddy</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Options Section -->
+    <section class="support-options">
+        <div class="container">
+            <div class="section-header">
+                <h2>Choose Your Support Method</h2>
+                <p>Select the best way to get help based on your needs</p>
+            </div>
+            
+            <div class="support-cards-grid">
+                <div class="support-card">
+                    <div class="support-icon">
+                        <svg viewBox="0 0 100 100" class="line-graphic">
+                            <line x1="20" y1="50" x2="80" y2="50" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+                            <circle cx="20" cy="50" r="8" fill="currentColor"/>
+                            <circle cx="80" cy="50" r="8" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3>Submit a Ticket</h3>
+                    <p>Fill out our support form and we'll get back to you within 24 hours</p>
+                    <button class="btn-primary" onclick="document.getElementById('support-form-section').scrollIntoView({behavior: 'smooth', block: 'start'})">
+                        Submit Ticket
+                    </button>
+                </div>
+
+                <div class="support-card">
+                    <div class="support-icon">
+                        <svg viewBox="0 0 100 100" class="line-graphic">
+                            <rect x="20" y="30" width="60" height="40" fill="none" stroke="currentColor" stroke-width="3"/>
+                            <line x1="20" y1="50" x2="80" y2="50" stroke="currentColor" stroke-width="2"/>
+                            <line x1="50" y1="30" x2="50" y2="70" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Email Us</h3>
+                    <p>Reach out directly via email for quick questions or detailed inquiries</p>
+                    <a href="mailto:support@biobuddy.com" class="btn-secondary">
+                        <i class="fas fa-envelope"></i>
+                        support@biobuddy.com
+                    </a>
+                </div>
+
+                <div class="support-card coming-soon-card">
+                    <div class="coming-soon-badge">Coming Soon</div>
+                    <div class="support-icon">
+                        <svg viewBox="0 0 100 100" class="line-graphic">
+                            <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="3"/>
+                            <path d="M 50 30 Q 50 20 40 20 Q 30 20 30 30 Q 30 40 40 40 Q 50 40 50 50" 
+                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="50" y1="50" x2="50" y2="70" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Chat With Us</h3>
+                    <p>Get instant help with our live chat support (available soon)</p>
+                    <button class="btn-outline" disabled>
+                        <i class="fas fa-comments"></i>
+                        Chat Coming Soon
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Form Section -->
+    <section id="support-form-section" class="support-form-section">
+        <div class="container">
+            <div class="form-container">
+                <div class="form-header">
+                    <h2>Submit a Support Ticket</h2>
+                    <p>Fill out the form below and our team will respond as soon as possible</p>
+                </div>
+                
+                <form id="supportForm" class="support-form">
+                    <div class="form-group">
+                        <label for="name">Name *</label>
+                        <input type="text" id="name" name="name" required placeholder="Your full name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <input type="text" id="subject" name="subject" required placeholder="Brief description of your issue">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="category">Category *</label>
+                        <select id="category" name="category" required>
+                            <option value="">Select a category</option>
+                            <option value="technical">Technical Issue</option>
+                            <option value="billing">Billing Question</option>
+                            <option value="feature">Feature Request</option>
+                            <option value="account">Account Help</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="6" required placeholder="Please provide details about your question or issue..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn-primary btn-large">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Ticket
+                        </button>
+                    </div>
+
+                    <div id="form-message" class="form-message"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h3>BioBuddy</h3>
+                    <p>Get On Your Biology A-Game</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Product</h4>
+                        <a href="index.html#features">Features</a>
+                        <a href="index.html#pricing">Pricing</a>
+                        <a href="index.html#demo">Demo</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Support</h4>
+                        <a href="support.html">Help Center</a>
+                        <a href="mailto:support@biobuddy.com">Contact</a>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <a href="#">About</a>
+                        <a href="https://biobuddy.com/blog/">Blog</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear">2024</span> BioBuddy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+    <script src="support.js"></script>
+</body>
+</html>
+
