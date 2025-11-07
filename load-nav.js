@@ -37,9 +37,9 @@ document.addEventListener('DOMContentLoaded', function() {
             });
             
             // Update Help link if on support page
-            const helpLink = document.querySelector('.nav-link[href="/support/"]');
+            const helpLink = document.querySelector('.nav-link[href="support"]');
             if (helpLink && isSupportPage) {
-                helpLink.href = '../support/';
+                helpLink.href = 'support';
             }
             
             // Re-initialize navigation functionality after loading
