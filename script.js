@@ -280,20 +280,14 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Demo video modal functionality
+    // Note: Watch Demo button now links directly to YouTube, so we only handle modal close functionality
     const watchDemoBtn = document.getElementById('watchDemoBtn');
     const demoModal = document.getElementById('demoModal');
     const closeDemoModal = document.getElementById('closeDemoModal');
     const demoVideo = document.getElementById('demoVideo');
 
-    if (watchDemoBtn && demoModal && closeDemoModal && demoVideo) {
-        // Open modal
-        watchDemoBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            demoModal.style.display = 'block';
-            // Load the video when modal opens
-            demoVideo.src = 'https://www.youtube.com/embed/F0vJIVMEZmg?autoplay=1';
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        });
+    // Only set up modal close handlers if modal exists (modal can still be opened via other means if needed)
+    if (demoModal && closeDemoModal && demoVideo) {
 
         // Close modal
         closeDemoModal.addEventListener('click', function() {

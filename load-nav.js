@@ -1,18 +1,26 @@
 // Load navigation component
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('nav.html')
+    // Determine the correct path to nav.html based on current location
+    const currentPath = window.location.pathname;
+    const isSupportPage = currentPath.includes('/support');
+    const navPath = isSupportPage ? '../nav.html' : 'nav.html';
+    
+    fetch(navPath)
         .then(response => response.text())
         .then(data => {
             document.body.insertAdjacentHTML('afterbegin', data);
             
             // Update navigation links based on current page
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-            const isIndexPage = currentPage === 'index.html' || currentPage === '' || currentPage === '/';
+            const isIndexPage = currentPath === '/' || currentPath === '/index.html' || currentPath.endsWith('/index.html');
             
             // Update logo link
             const logoLink = document.querySelector('.nav-logo-link');
             if (logoLink) {
-                logoLink.href = isIndexPage ? '/' : 'index.html';
+                if (isSupportPage) {
+                    logoLink.href = '../';
+                } else {
+                    logoLink.href = isIndexPage ? '/' : 'index.html';
+                }
             }
             
             // Update navigation links
@@ -20,10 +28,19 @@ document.addEventListener('DOMContentLoaded', function() {
             navLinks.forEach(link => {
                 if (isIndexPage) {
                     link.href = link.getAttribute('data-href-index');
+                } else if (isSupportPage) {
+                    // On support page, links should go to index.html with anchors
+                    link.href = '../' + link.getAttribute('data-href-other');
                 } else {
                     link.href = link.getAttribute('data-href-other');
                 }
             });
+            
+            // Update Help link if on support page
+            const helpLink = document.querySelector('.nav-link[href="/support/"]');
+            if (helpLink && isSupportPage) {
+                helpLink.href = '../support/';
+            }
             
             // Re-initialize navigation functionality after loading
             initializeNav();
@@ -72,19 +89,13 @@ function initializeNav() {
     }
 
     // Demo video modal functionality (if on index page)
-    const watchDemoBtn = document.getElementById('watchDemoBtn');
+    // Note: Watch Demo button now links directly to YouTube, so modal functionality is handled in script.js
     const demoModal = document.getElementById('demoModal');
     const closeDemoModal = document.getElementById('closeDemoModal');
     const demoVideo = document.getElementById('demoVideo');
 
-    if (watchDemoBtn && demoModal && closeDemoModal && demoVideo) {
-        watchDemoBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            demoModal.style.display = 'block';
-            demoVideo.src = 'https://www.youtube.com/embed/F0vJIVMEZmg?autoplay=1';
-            document.body.style.overflow = 'hidden';
-        });
-
+    // Only set up modal close handlers if modal exists (on index page)
+    if (demoModal && closeDemoModal && demoVideo) {
         closeDemoModal.addEventListener('click', function() {
             demoModal.style.display = 'none';
             demoVideo.src = '';
