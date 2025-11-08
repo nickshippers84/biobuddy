@@ -726,19 +726,19 @@ h1, h2, h3, h4, h5, h6,
 
 /* Floating Help Button */
 .floating-help-btn {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
+    position: fixed !important;
+    bottom: 30px !important;
+    right: 30px !important;
     width: 60px;
     height: 60px;
     background: var(--primary-blue);
     color: var(--white);
     border-radius: 50%;
-    display: flex;
+    display: flex !important;
     align-items: center;
     justify-content: center;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    z-index: 999;
+    z-index: 1001 !important;
     text-decoration: none;
     transition: all 0.3s ease;
     font-size: 1.5rem;
@@ -799,11 +799,16 @@ h1, h2, h3, h4, h5, h6,
 /* Responsive adjustments for floating elements */
 @media (max-width: 768px) {
     .back-to-top {
-        bottom: 120px;
+        bottom: 90px;
         right: 15px;
         width: 45px;
         height: 45px;
         font-size: 1rem;
+    }
+    
+    .floating-help-btn {
+        bottom: 20px !important;
+        right: 20px !important;
     }
     
     .mobile-showcase {
