@@ -118,49 +118,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Mobile showcase flip animation - cycle through 4 images
-    const mobileImages = [
-        { type: 'img', src: 'img/mobile-home-lms2.0.png', alt: 'BioBuddy Mobile Home LMS' },
-        { type: 'placeholder', text: 'Mobile Image 2' },
-        { type: 'placeholder', text: 'Mobile Image 3' },
-        { type: 'placeholder', text: 'Mobile Image 4' }
-    ];
-    
-    let currentImageIndex = 0;
-    const mobileFlipFront = document.querySelector('.mobile-flip-front');
-    const mobileFlipBack = document.querySelector('.mobile-flip-back');
-    
-    function updateMobileFace(container, imageData) {
-        // Clear container
-        container.innerHTML = '';
-        
-        if (imageData.type === 'img') {
-            const img = document.createElement('img');
-            img.src = imageData.src;
-            img.alt = imageData.alt;
-            img.className = 'mobile-showcase-image';
-            container.appendChild(img);
-        } else {
-            const placeholder = document.createElement('div');
-            placeholder.className = 'mobile-placeholder';
-            const span = document.createElement('span');
-            span.textContent = imageData.text;
-            placeholder.appendChild(span);
-            container.appendChild(placeholder);
-        }
-    }
-    
-    if (mobileFlipFront && mobileFlipBack) {
-        // Update images every 2 seconds to cycle through all 4
-        setInterval(() => {
-            currentImageIndex = (currentImageIndex + 1) % mobileImages.length;
-            const nextImageIndex = (currentImageIndex + 1) % mobileImages.length;
-            
-            // Update front and back images
-            updateMobileFace(mobileFlipFront, mobileImages[currentImageIndex]);
-            updateMobileFace(mobileFlipBack, mobileImages[nextImageIndex]);
-        }, 2000); // Change every 2 seconds (matches flip animation timing)
-    }
 
     // Add typing effect to hero title
     const heroTitle = document.querySelector('.hero-title .highlight');
