@@ -724,9 +724,76 @@ h1, h2, h3, h4, h5, h6,
     }
 }
 
-/* Zendesk handles its own chat button styling */
+/* Floating Help Button */
+.floating-help-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    background: var(--primary-blue);
+    color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 999;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 1.5rem;
+}
 
-/* Let Zendesk handle its own styling and positioning */
+.floating-help-btn:hover {
+    background: var(--dark-blue);
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    color: var(--white);
+}
+
+.floating-help-btn .help-tooltip {
+    position: absolute;
+    right: 70px;
+    background: var(--text-dark);
+    color: var(--white);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    font-weight: 500;
+}
+
+.floating-help-btn .help-tooltip::after {
+    content: '';
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 6px solid transparent;
+    border-left-color: var(--text-dark);
+}
+
+.floating-help-btn:hover .help-tooltip {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .floating-help-btn {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 1.25rem;
+    }
+    
+    .floating-help-btn .help-tooltip {
+        display: none;
+    }
+}
 
 
 /* Responsive adjustments for floating elements */
@@ -1100,7 +1167,79 @@ h1, h2, h3, h4, h5, h6,
     line-height: 1.6;
 }
 
-/* Beta visual section removed for clean design */
+/* Beta Image Placeholder */
+.beta-image-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.placeholder-content {
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placeholder-shape {
+    width: 80%;
+    height: 80%;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    border-radius: 20px;
+    box-shadow: 
+        0 20px 60px rgba(0, 0, 0, 0.1),
+        0 10px 30px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    position: relative;
+    overflow: hidden;
+}
+
+.placeholder-shape::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+    height: 60%;
+    background: linear-gradient(135deg, rgba(19, 108, 240, 0.1) 0%, rgba(19, 108, 240, 0.05) 100%);
+    border-radius: 50%;
+    box-shadow: 
+        inset 0 10px 30px rgba(0, 0, 0, 0.1),
+        0 5px 15px rgba(19, 108, 240, 0.2);
+}
+
+.placeholder-shape::after {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    width: 15%;
+    height: 15%;
+    background: rgba(19, 108, 240, 0.15);
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(19, 108, 240, 0.3);
+}
+
+@media (max-width: 768px) {
+    .beta-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .beta-image-placeholder {
+        order: -1;
+        padding: 1rem;
+    }
+    
+    .placeholder-content {
+        max-width: 300px;
+    }
+}
 
 /* Pricing Section */
 .pricing-section {

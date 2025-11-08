@@ -268,9 +268,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Zendesk handles its own chat functionality
-
-    // Let Zendesk handle everything automatically
     // No custom initialization needed
 
     // Auto-update copyright year
