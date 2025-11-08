@@ -1188,14 +1188,48 @@ h1, h2, h3, h4, h5, h6,
     line-height: 1.6;
 }
 
+.beta-tags {
+    margin-top: 2.5rem;
+}
+
+.beta-tags h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-dark);
+}
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.model-tag {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--light-gray);
+    color: var(--text-dark);
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid rgba(19, 108, 240, 0.2);
+    transition: all 0.3s ease;
+}
+
+.model-tag:hover {
+    background: rgba(19, 108, 240, 0.1);
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+    transform: translateY(-2px);
+}
+
 /* Beta Image Placeholder */
 .beta-image-placeholder {
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 2rem;
-    gap: 2rem;
-    flex-wrap: wrap;
 }
 
 .placeholder-content {
@@ -1216,66 +1250,6 @@ h1, h2, h3, h4, h5, h6,
         0 20px 60px rgba(0, 0, 0, 0.15),
         0 10px 30px rgba(0, 0, 0, 0.1);
     object-fit: contain;
-}
-
-.beta-image-secondary {
-    position: relative;
-    max-width: 300px;
-    width: 100%;
-}
-
-.secondary-image-wrapper {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 1;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 16px;
-    box-shadow: 
-        0 15px 40px rgba(0, 0, 0, 0.12),
-        0 8px 20px rgba(0, 0, 0, 0.08);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: visible;
-}
-
-.cell-icon-floating {
-    position: absolute;
-    top: -30px;
-    right: -20px;
-    width: 80px;
-    height: 80px;
-    object-fit: contain;
-    filter: drop-shadow(0 8px 20px rgba(19, 108, 240, 0.4));
-    z-index: 10;
-    animation: floatIcon 3s ease-in-out infinite;
-}
-
-@keyframes floatIcon {
-    0%, 100% {
-        transform: translateY(0px);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-}
-
-@media (max-width: 768px) {
-    .beta-image-placeholder {
-        flex-direction: column;
-        gap: 1.5rem;
-    }
-    
-    .beta-image-secondary {
-        max-width: 250px;
-    }
-    
-    .cell-icon-floating {
-        width: 60px;
-        height: 60px;
-        top: -20px;
-        right: -15px;
-    }
 }
 
 @media (max-width: 768px) {
