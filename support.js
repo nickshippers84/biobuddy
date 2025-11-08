@@ -7,38 +7,73 @@ document.addEventListener('DOMContentLoaded', function() {
         supportForm.addEventListener('submit', function(e) {
             e.preventDefault();
             
+            // Disable submit button to prevent double submission
+            const submitButton = supportForm.querySelector('button[type="submit"]');
+            const originalButtonText = submitButton.innerHTML;
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+            
             // Get form data
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                subject: document.getElementById('subject').value,
-                category: document.getElementById('category').value,
-                message: document.getElementById('message').value
-            };
-
-            // Create mailto link (fallback method)
-            const mailtoLink = `mailto:support@biobuddy.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(
-                `Name: ${formData.name}\nEmail: ${formData.email}\nCategory: ${formData.category}\n\nMessage:\n${formData.message}`
-            )}`;
-
-            // Show success message
+            const formData = new FormData(supportForm);
+            
+            // Show loading message
             formMessage.innerHTML = `
-                <div class="form-success">
-                    <i class="fas fa-check-circle"></i>
-                    <p>Thank you for your submission! Opening your email client...</p>
-                    <p class="form-note">If your email client doesn't open, please email us directly at <a href="mailto:support@biobuddy.com">support@biobuddy.com</a></p>
+                <div style="color: var(--primary-blue); padding: 1rem;">
+                    <i class="fas fa-spinner fa-spin"></i> Submitting your ticket...
                 </div>
             `;
             formMessage.style.display = 'block';
-
-            // Open email client
-            window.location.href = mailtoLink;
-
-            // Reset form after a delay
-            setTimeout(() => {
-                supportForm.reset();
-                formMessage.style.display = 'none';
-            }, 5000);
+            
+            // Submit form via AJAX
+            fetch('../support-ticket.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    // Show success message
+                    formMessage.innerHTML = `
+                        <div class="form-success">
+                            <i class="fas fa-check-circle"></i>
+                            <p>${data.message}</p>
+                        </div>
+                    `;
+                    formMessage.style.display = 'block';
+                    
+                    // Reset form
+                    supportForm.reset();
+                    
+                    // Hide message after 5 seconds
+                    setTimeout(() => {
+                        formMessage.style.display = 'none';
+                    }, 5000);
+                } else {
+                    // Show error message
+                    formMessage.innerHTML = `
+                        <div class="form-error">
+                            <i class="fas fa-exclamation-circle"></i>
+                            <p>${data.message}</p>
+                        </div>
+                    `;
+                    formMessage.style.display = 'block';
+                }
+            })
+            .catch(error => {
+                // Show error message
+                formMessage.innerHTML = `
+                    <div class="form-error">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <p>Sorry, there was an error sending your ticket. Please try again or email us directly at <a href="mailto:support@biobuddy.com">support@biobuddy.com</a></p>
+                    </div>
+                `;
+                formMessage.style.display = 'block';
+            })
+            .finally(() => {
+                // Re-enable submit button
+                submitButton.disabled = false;
+                submitButton.innerHTML = originalButtonText;
+            });
         });
     }
 

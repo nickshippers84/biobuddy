@@ -1183,51 +1183,21 @@ h1, h2, h3, h4, h5, h6,
 .placeholder-content {
     width: 100%;
     max-width: 500px;
-    aspect-ratio: 1;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.placeholder-shape {
-    width: 80%;
-    height: 80%;
-    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-    border-radius: 20px;
+.cell-model-gif {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px;
     box-shadow: 
-        0 20px 60px rgba(0, 0, 0, 0.1),
-        0 10px 30px rgba(0, 0, 0, 0.08),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
-    position: relative;
-    overflow: hidden;
-}
-
-.placeholder-shape::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 60%;
-    height: 60%;
-    background: linear-gradient(135deg, rgba(19, 108, 240, 0.1) 0%, rgba(19, 108, 240, 0.05) 100%);
-    border-radius: 50%;
-    box-shadow: 
-        inset 0 10px 30px rgba(0, 0, 0, 0.1),
-        0 5px 15px rgba(19, 108, 240, 0.2);
-}
-
-.placeholder-shape::after {
-    content: '';
-    position: absolute;
-    top: 20%;
-    left: 20%;
-    width: 15%;
-    height: 15%;
-    background: rgba(19, 108, 240, 0.15);
-    border-radius: 50%;
-    box-shadow: 0 4px 12px rgba(19, 108, 240, 0.3);
+        0 20px 60px rgba(0, 0, 0, 0.15),
+        0 10px 30px rgba(0, 0, 0, 0.1);
+    object-fit: contain;
 }
 
 @media (max-width: 768px) {
@@ -2061,6 +2031,31 @@ h1, h2, h3, h4, h5, h6,
 .form-success i {
     font-size: 1.5rem;
     color: var(--success-green);
+}
+
+.form-error {
+    background: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    padding: 1rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-error i {
+    font-size: 1.5rem;
+    color: #dc3545;
+}
+
+.form-error a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.form-error a:hover {
+    text-decoration: underline;
 }
 
 .form-note {
