@@ -312,4 +312,46 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Contact form handling
+    const contactForm = document.getElementById('contactForm');
+    const contactFormMessage = document.getElementById('contact-form-message');
+
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                name: document.getElementById('contact-name').value,
+                email: document.getElementById('contact-email').value,
+                reason: document.getElementById('contact-reason').value,
+                message: document.getElementById('contact-message').value
+            };
+
+            // Create mailto link
+            const mailtoLink = `mailto:support@biobuddy.com?subject=${encodeURIComponent('Contact: ' + formData.reason)}&body=${encodeURIComponent(
+                `Name: ${formData.name}\nEmail: ${formData.email}\nReason: ${formData.reason}\n\nMessage:\n${formData.message}`
+            )}`;
+
+            // Show success message
+            contactFormMessage.innerHTML = `
+                <div class="form-success">
+                    <i class="fas fa-check-circle"></i>
+                    <p>Thank you for your message! Opening your email client...</p>
+                    <p class="form-note">If your email client doesn't open, please email us directly at <a href="mailto:support@biobuddy.com">support@biobuddy.com</a></p>
+                </div>
+            `;
+            contactFormMessage.style.display = 'block';
+
+            // Open email client
+            window.location.href = mailtoLink;
+
+            // Reset form after a delay
+            setTimeout(() => {
+                contactForm.reset();
+                contactFormMessage.style.display = 'none';
+            }, 5000);
+        });
+    }
+
 });

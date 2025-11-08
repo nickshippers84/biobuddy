@@ -275,10 +275,10 @@
                 </div>
                 <div class="benefit-item">
                     <div class="benefit-icon">
-                        <i class="fas fa-headset"></i>
+                        <i class="fab fa-google"></i>
                     </div>
-                    <h4>Dedicated Support</h4>
-                    <p>Get priority support from our team of PhD biologists and education experts.</p>
+                    <h4>Google Classroom Integration</h4>
+                    <p>Seamlessly integrate BioBuddy with Google Classroom for easy assignment distribution and grade tracking.</p>
                 </div>
             </div>
         </div>
@@ -360,16 +360,56 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="cta-section">
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
         <div class="container">
-            <div class="cta-content">
-                <h2>Ready to Transform Your Biology Learning?</h2>
-                <p>Choose the plan that's right for you and start your journey to mastering biology today.</p>
-                <div class="cta-buttons">
-                    <a href="https://learn.biobuddy.com/" target="_blank" class="btn-primary btn-large">Get Started Now</a>
-                    <a href="https://calendly.com/nick-biobuddy/30min" target="_blank" class="btn-outline btn-large">Schedule Demo</a>
+            <div class="contact-content">
+                <div class="contact-header">
+                    <h2>Get in Touch</h2>
+                    <p>Have a question or want to learn more? We'd love to hear from you.</p>
                 </div>
+                
+                <form id="contactForm" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="contact-name">Name *</label>
+                            <input type="text" id="contact-name" name="name" required placeholder="Your name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="contact-email">Email *</label>
+                            <input type="email" id="contact-email" name="email" required placeholder="your.email@example.com">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-reason">Reason for Contact *</label>
+                        <select id="contact-reason" name="reason" required>
+                            <option value="">Select a reason</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="demo">Request a Demo</option>
+                            <option value="pricing">Pricing Questions</option>
+                            <option value="technical">Technical Support</option>
+                            <option value="partnership">Partnership Opportunities</option>
+                            <option value="media">Media Inquiry</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="contact-message">Message *</label>
+                        <textarea id="contact-message" name="message" rows="6" required placeholder="Tell us how we can help..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <button type="submit" class="btn-primary btn-large">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </div>
+                    
+                    <div id="contact-form-message" class="form-message"></div>
+                </form>
             </div>
         </div>
     </section>
@@ -385,19 +425,17 @@
                 <div class="footer-links">
                     <div class="footer-column">
                         <h4>Product</h4>
-                        <a href="#">Features</a>
-                        <a href="#">Pricing</a>
-                        <a href="#">Demo</a>
+                        <a href="#demo">Features</a>
+                        <a href="https://calendly.com/nick-biobuddy/30min" target="_blank">Book a Demo</a>
                     </div>
                     <div class="footer-column">
                         <h4>Support</h4>
-                        <a href="#">Help Center</a>
-                        <a href="#">Contact</a>
+                        <a href="support/">Help Center</a>
+                        <a href="#contact">Contact</a>
                     </div>
                     <div class="footer-column">
                         <h4>Company</h4>
-                        <a href="#">About</a>
-                        <a href="#">Blog</a>
+                        <a href="https://biobuddy.com/blog">Blog</a>
                     </div>
                 </div>
             </div>
