@@ -1,0 +1,3 @@
+# Enable directory index files for support directory
+DirectoryIndex index.html
+

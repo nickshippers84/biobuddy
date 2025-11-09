@@ -1,0 +1,21 @@
+# Enable directory index files
+DirectoryIndex index.html index.php
+
+# Ensure index.html is served for directories
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /
+    
+    # Route /support/ to /support/index.html
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^support/?$ support/index.html [L]
+</IfModule>
+
+# Set proper MIME types
+<IfModule mod_mime.c>
+    AddType text/html .html
+    AddType application/javascript .js
+    AddType text/css .css
+</IfModule>
+
