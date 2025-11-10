@@ -1,13 +1,13 @@
 <?php
 // Contact form handler for BioBuddy using Freshdesk API
-// Creates tickets in Freshdesk instead of sending email
+// Creates a ticket in Freshdesk instead of sending email
 
 // Set response headers
 header('Content-Type: application/json; charset=UTF-8');
 
 // Only allow POST requests
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(200); // Return 200 to avoid 409
+    http_response_code(405);
     echo json_encode(['success' => false, 'message' => 'Method not allowed']);
     exit;
 }
@@ -46,24 +46,25 @@ if (!empty($errors)) {
     exit;
 }
 
-// Freshworks/Freshdesk API Configuration
-$freshdesk_domain = 'biobuddyorg.freshdesk.com';
-$freshdesk_api_key = 'E0tYAC1vEf8ud0GP3NR1';
+// Freshdesk API Configuration
+// TODO: Replace these with your actual Freshdesk credentials
+$freshdesk_domain = 'YOUR_DOMAIN.freshdesk.com'; // e.g., 'biobuddy.freshdesk.com'
+$freshdesk_api_key = 'YOUR_API_KEY'; // Get from Freshdesk Profile Settings > API
 
-// Map reason to Freshdesk priority
+// Map reason to Freshdesk priority/status
 $priority_map = [
-    'technical' => 2, // High priority
-    'pricing' => 1,   // Medium priority
-    'demo' => 1,
-    'general' => 1,
-    'partnership' => 1,
-    'media' => 1,
-    'other' => 1
+    'technical' => 2, // High priority for technical support
+    'pricing' => 1,    // Medium priority
+    'demo' => 1,       // Medium priority
+    'general' => 1,    // Medium priority
+    'partnership' => 1, // Medium priority
+    'media' => 1,      // Medium priority
+    'other' => 1       // Medium priority
 ];
 
 $priority = isset($priority_map[$reason]) ? $priority_map[$reason] : 1;
 
-// Prepare ticket data for Freshdesk
+// Prepare ticket data
 $ticket_data = [
     'email' => $email,
     'subject' => 'Contact Form: ' . $reason,
@@ -72,15 +73,14 @@ $ticket_data = [
                      "Reason: " . $reason . "\n\n" . 
                      "Message:\n" . $message,
     'priority' => $priority,
-    'status' => 2, // Open
+    'status' => 2, // Open status
     'source' => 2, // Portal
     'tags' => ['contact-form', 'website', $reason]
 ];
 
-// Create ticket via Freshworks/Freshdesk API
-// Note: Freshworks uses the same API structure as Freshdesk
+// Create ticket via Freshdesk API
 $url = 'https://' . $freshdesk_domain . '/api/v2/tickets';
-$auth = base64_encode($freshdesk_api_key . ':X'); // API key format
+$auth = base64_encode($freshdesk_api_key . ':X'); // API key format for Freshdesk
 
 $ch = curl_init($url);
 curl_setopt($ch, CURLOPT_POST, true);
@@ -97,7 +97,7 @@ $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 $curl_error = curl_error($ch);
 curl_close($ch);
 
-// Handle response - always return 200 to avoid 409
+// Handle response
 if ($http_code === 201) {
     // Ticket created successfully
     $ticket = json_decode($response, true);
@@ -111,13 +111,14 @@ if ($http_code === 201) {
 } else {
     // Error creating ticket
     $error_data = json_decode($response, true);
-    $error_msg = isset($error_data['errors']) ? json_encode($error_data['errors']) : ($response ?: 'Unknown error');
+    $error_msg = isset($error_data['errors']) ? json_encode($error_data['errors']) : $response;
     
     error_log("Freshdesk API error (HTTP $http_code): $error_msg");
     if ($curl_error) {
         error_log("cURL error: $curl_error");
     }
     
+    // Still return 200 to avoid 409 conflicts
     http_response_code(200);
     echo json_encode([
         'success' => false,

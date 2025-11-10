@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Support - BioBuddy</title>
-    <link rel="stylesheet" href="../styles.css?v=26">
+    <link rel="stylesheet" href="../styles.css?v=27">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -31,18 +31,39 @@
                         </svg>
                     </div>
                     <h3>Submit a Ticket</h3>
-                    <p>Fill out our support form and we'll get back to you within 24 hours</p>
-                    <button class="btn-primary" onclick="document.getElementById('support-form-section').scrollIntoView({behavior: 'smooth', block: 'start'})">
-                        Submit Ticket
+                    <p>Use the support chat widget in the bottom right corner of your screen to submit a ticket and get instant help from our team.</p>
+                    <button class="btn-primary" id="openChatWidget">
+                        <i class="fas fa-comments"></i>
+                        Open Chat
+                    </button>
+                </div>
+
+                <div class="support-card coming-soon-card">
+                    <div class="coming-soon-badge">Coming Soon</div>
+                    <div class="support-icon">
+                        <svg viewBox="0 0 100 100" class="line-graphic">
+                            <!-- Chat bubble with message lines -->
+                            <path d="M 25 25 Q 25 15 35 15 L 65 15 Q 75 15 75 25 L 75 45 Q 75 55 65 55 L 50 55 L 35 70 L 35 55 L 25 55 Q 15 55 15 45 L 15 25 Q 15 15 25 25 Z" 
+                                  fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                            <line x1="30" y1="35" x2="50" y2="35" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                            <line x1="30" y1="45" x2="55" y2="45" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Chat With Us</h3>
+                    <p>Get instant help with our live chat support (available soon)</p>
+                    <button class="btn-outline" disabled>
+                        <i class="fas fa-comments"></i>
+                        Chat Coming Soon
                     </button>
                 </div>
 
                 <div class="support-card">
                     <div class="support-icon">
                         <svg viewBox="0 0 100 100" class="line-graphic">
-                            <rect x="20" y="30" width="60" height="40" fill="none" stroke="currentColor" stroke-width="3"/>
-                            <line x1="20" y1="50" x2="80" y2="50" stroke="currentColor" stroke-width="2"/>
-                            <line x1="50" y1="30" x2="50" y2="70" stroke="currentColor" stroke-width="2"/>
+                            <!-- Envelope icon -->
+                            <rect x="20" y="25" width="60" height="45" fill="none" stroke="currentColor" stroke-width="3" rx="2"/>
+                            <path d="M 20 25 L 50 50 L 80 25" 
+                                  fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </div>
                     <h3>Email Us</h3>
@@ -53,81 +74,10 @@
                     </a>
                 </div>
 
-                <div class="support-card coming-soon-card">
-                    <div class="coming-soon-badge">Coming Soon</div>
-                    <div class="support-icon">
-                        <svg viewBox="0 0 100 100" class="line-graphic">
-                            <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" stroke-width="3"/>
-                            <path d="M 50 30 Q 50 20 40 20 Q 30 20 30 30 Q 30 40 40 40 Q 50 40 50 50" 
-                                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="50" y1="50" x2="50" y2="70" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                        </svg>
-                    </div>
-                    <h3>Chat With Us</h3>
-                    <p>Get instant help with our live chat support (available soon)</p>
-                    <button class="btn-outline" disabled>
-                        <i class="fas fa-comments"></i>
-                        Chat Coming Soon
-                    </button>
-                </div>
             </div>
         </div>
     </section>
 
-    <!-- Support Form Section -->
-    <section id="support-form-section" class="support-form-section">
-        <div class="container">
-            <div class="form-container">
-                <div class="form-header">
-                    <h2>Submit a Support Ticket</h2>
-                    <p>Fill out the form below and our team will respond as soon as possible</p>
-                </div>
-                
-                <form id="supportForm" class="support-form">
-                    <div class="form-group">
-                        <label for="name">Name *</label>
-                        <input type="text" id="name" name="name" required placeholder="Your full name">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" required placeholder="your.email@example.com">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="subject">Subject *</label>
-                        <input type="text" id="subject" name="subject" required placeholder="Brief description of your issue">
-                    </div>
-
-                    <div class="form-group">
-                        <label for="category">Category *</label>
-                        <select id="category" name="category" required>
-                            <option value="">Select a category</option>
-                            <option value="technical">Technical Issue</option>
-                            <option value="billing">Billing Question</option>
-                            <option value="feature">Feature Request</option>
-                            <option value="account">Account Help</option>
-                            <option value="other">Other</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" rows="6" required placeholder="Please provide details about your question or issue..."></textarea>
-                    </div>
-
-                    <div class="form-group">
-                        <button type="submit" class="btn-primary btn-large">
-                            <i class="fas fa-paper-plane"></i>
-                            Submit Ticket
-                        </button>
-                    </div>
-
-                    <div id="form-message" class="form-message"></div>
-                </form>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -167,14 +117,42 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <!-- Floating Help Button (hidden on support page) -->
-    <a href="../support/" class="floating-help-btn" aria-label="Get Help" style="display: none;">
-        <i class="fas fa-question-circle"></i>
-        <span class="help-tooltip">Need Help?</span>
-    </a>
 
     <script src="../script.js"></script>
-    <script src="../support.js"></script>
+    
+    <!-- Freshdesk Chat Widget -->
+    <script
+        src='//fw-cdn.com/15101761/6538850.js'
+        chat='true'>
+    </script>
+    
+    <script>
+        // Open chat widget when button is clicked
+        document.addEventListener('DOMContentLoaded', function() {
+            const openChatBtn = document.getElementById('openChatWidget');
+            if (openChatBtn) {
+                openChatBtn.addEventListener('click', function() {
+                    // Try to open Freshdesk chat widget using the correct API
+                    // Wait for widget to load, then try to open it
+                    setTimeout(function() {
+                        // Freshdesk/Freshchat widget API methods
+                        if (typeof window.fcWidget !== 'undefined' && window.fcWidget.open) {
+                            window.fcWidget.open();
+                        } else if (typeof window.FreshworksWidget !== 'undefined') {
+                            window.FreshworksWidget('open');
+                        } else if (typeof window.fw !== 'undefined') {
+                            window.fw('open');
+                        } else if (typeof window.Freshchat !== 'undefined') {
+                            window.Freshchat('open');
+                        } else {
+                            // Fallback: scroll to bottom where widget should be
+                            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                        }
+                    }, 1000); // Increased timeout to ensure widget is loaded
+                });
+            }
+        });
+    </script>
 </body>
 </html>
 

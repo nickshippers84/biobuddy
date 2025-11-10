@@ -1,6 +1,20 @@
 # Enable directory index files
 DirectoryIndex index.html index.php
 
+# Force HTTPS in .htaccess
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+
+# Whitelist contact form script from mod_security (prevents 409 errors)
+<IfModule mod_security.c>
+    SecRuleRemoveById 300013
+    SecRuleRemoveById 300015
+    SecRuleRemoveById 300016
+    SecRuleRemoveById 300017
+</IfModule>
+
 # Ensure index.html is served for directories
 <IfModule mod_rewrite.c>
     RewriteEngine On

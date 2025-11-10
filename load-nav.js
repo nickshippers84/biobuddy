@@ -42,6 +42,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 helpLink.href = 'support/';
             }
             
+            // Update mobile navigation links
+            const mobileNavLinks = document.querySelectorAll('.mobile-nav-link[data-href-index]');
+            mobileNavLinks.forEach(link => {
+                if (isIndexPage) {
+                    link.href = link.getAttribute('data-href-index');
+                } else if (isSupportPage) {
+                    link.href = '../' + link.getAttribute('data-href-other');
+                } else {
+                    link.href = link.getAttribute('data-href-other');
+                }
+            });
+            
             // Re-initialize navigation functionality after loading
             initializeNav();
         })
@@ -51,6 +63,37 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function initializeNav() {
+    // Mobile menu toggle - simpler approach
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+    
+    if (mobileMenuToggle && mobileMenu) {
+        mobileMenuToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            mobileMenuToggle.classList.toggle('is-active');
+            mobileMenu.classList.toggle('is-open');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+        mobileNavLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenuToggle.classList.remove('is-active');
+                mobileMenu.classList.remove('is-open');
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (mobileMenu.classList.contains('is-open')) {
+                if (!mobileMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                    mobileMenuToggle.classList.remove('is-active');
+                    mobileMenu.classList.remove('is-open');
+                }
+            }
+        });
+    }
+    
     // Smooth scrolling for navigation links
     const navLinks = document.querySelectorAll('a[href^="#"]');
     
