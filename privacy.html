@@ -4,9 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy - BioBuddy</title>
+    <!-- Critical CSS - Load immediately -->
     <link rel="stylesheet" href="styles.css?v=27">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Header will be loaded here (fonts, analytics, favicon) -->
+    <script src="load-header.js"></script>
 </head>
 <body>
 
@@ -329,40 +330,8 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <h3>BioBuddy</h3>
-                    <p>Get On Your Biology A-Game</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Product</h4>
-                        <a href="/#demo">Features</a>
-                        <a href="https://calendly.com/nick-biobuddy/30min" target="_blank">Book a Demo</a>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Support</h4>
-                        <a href="/support/">Help Center</a>
-                        <a href="/#contact">Contact</a>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Company</h4>
-                        <a href="https://biobuddy.com/blog">Blog</a>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 BioBuddy LLC. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="/privacy.html">Privacy Policy</a>
-                    <a href="/terms.html">Terms & Conditions</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer will be loaded here -->
+    <script src="load-footer.js"></script>
 
     <script src="script.js"></script>
 </body>
