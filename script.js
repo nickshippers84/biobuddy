@@ -278,15 +278,39 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Demo video modal functionality
-    // Note: Watch Demo button now links directly to YouTube, so we only handle modal close functionality
     const watchDemoBtn = document.getElementById('watchDemoBtn');
+    const watchDemoBtnMobile = document.getElementById('watchDemoBtnMobile');
     const demoModal = document.getElementById('demoModal');
     const closeDemoModal = document.getElementById('closeDemoModal');
     const demoVideo = document.getElementById('demoVideo');
 
-    // Only set up modal close handlers if modal exists (modal can still be opened via other means if needed)
-    if (demoModal && closeDemoModal && demoVideo) {
+    // Function to open the demo modal
+    function openDemoModal() {
+        if (demoModal && demoVideo) {
+            // Set the YouTube embed URL with autoplay
+            demoVideo.src = 'https://www.youtube.com/embed/F0vJIVMEZmg?autoplay=1';
+            demoModal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+    }
 
+    // Open modal when "Watch a Demo" button is clicked (if button exists and modal exists)
+    if (watchDemoBtn && demoModal) {
+        watchDemoBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            openDemoModal();
+        });
+    }
+
+    if (watchDemoBtnMobile && demoModal) {
+        watchDemoBtnMobile.addEventListener('click', function(e) {
+            e.preventDefault();
+            openDemoModal();
+        });
+    }
+
+    // Set up modal close handlers if modal exists
+    if (demoModal && closeDemoModal && demoVideo) {
         // Close modal
         closeDemoModal.addEventListener('click', function() {
             demoModal.style.display = 'none';

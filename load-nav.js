@@ -131,33 +131,93 @@ function initializeNav() {
         });
     }
 
-    // Demo video modal functionality (if on index page)
-    // Note: Watch Demo button now links directly to YouTube, so modal functionality is handled in script.js
-    const demoModal = document.getElementById('demoModal');
+    // Demo video modal functionality
+    // Create modal if it doesn't exist (for pages other than index)
+    let demoModal = document.getElementById('demoModal');
+    if (!demoModal) {
+        const modalHTML = `
+            <div id="demoModal" class="demo-modal">
+                <div class="demo-modal-content">
+                    <div class="demo-modal-header">
+                        <h3>Watch Our Quick Tour</h3>
+                        <button class="demo-modal-close" id="closeDemoModal">&times;</button>
+                    </div>
+                    <div class="demo-modal-body">
+                        <div class="demo-video-wrapper">
+                            <iframe 
+                                id="demoVideo" 
+                                src="" 
+                                title="BioBuddy Demo Video" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        `;
+        document.body.insertAdjacentHTML('beforeend', modalHTML);
+        demoModal = document.getElementById('demoModal');
+    }
+
     const closeDemoModal = document.getElementById('closeDemoModal');
     const demoVideo = document.getElementById('demoVideo');
+    const watchDemoBtn = document.getElementById('watchDemoBtn');
+    const watchDemoBtnMobile = document.getElementById('watchDemoBtnMobile');
 
-    // Only set up modal close handlers if modal exists (on index page)
+    // Open modal when "Watch a Demo" button is clicked
+    function openDemoModal() {
+        if (demoModal && demoVideo) {
+            // Set the YouTube embed URL
+            demoVideo.src = 'https://www.youtube.com/embed/F0vJIVMEZmg?autoplay=1';
+            demoModal.style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+    }
+
+    if (watchDemoBtn) {
+        watchDemoBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            openDemoModal();
+        });
+    }
+
+    if (watchDemoBtnMobile) {
+        watchDemoBtnMobile.addEventListener('click', function(e) {
+            e.preventDefault();
+            openDemoModal();
+            // Close mobile menu if open
+            const mobileMenu = document.querySelector('.mobile-menu');
+            const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+            if (mobileMenu && mobileMenu.classList.contains('is-open')) {
+                if (mobileMenuToggle) mobileMenuToggle.classList.remove('is-active');
+                mobileMenu.classList.remove('is-open');
+            }
+        });
+    }
+
+    // Close modal handlers
     if (demoModal && closeDemoModal && demoVideo) {
         closeDemoModal.addEventListener('click', function() {
             demoModal.style.display = 'none';
-            demoVideo.src = '';
-            document.body.style.overflow = 'auto';
+            demoVideo.src = ''; // Stop video when modal closes
+            document.body.style.overflow = 'auto'; // Restore scrolling
         });
 
         demoModal.addEventListener('click', function(e) {
             if (e.target === demoModal) {
                 demoModal.style.display = 'none';
-                demoVideo.src = '';
-                document.body.style.overflow = 'auto';
+                demoVideo.src = ''; // Stop video when modal closes
+                document.body.style.overflow = 'auto'; // Restore scrolling
             }
         });
 
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape' && demoModal.style.display === 'block') {
                 demoModal.style.display = 'none';
-                demoVideo.src = '';
-                document.body.style.overflow = 'auto';
+                demoVideo.src = ''; // Stop video when modal closes
+                document.body.style.overflow = 'auto'; // Restore scrolling
             }
         });
     }

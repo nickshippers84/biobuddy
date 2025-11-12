@@ -36,3 +36,4 @@ Contact form at `contact.php` is returning HTTP 409 Conflict error when submitti
 ## Alternative Solution
 If mod_security cannot be adjusted, we can switch to a third-party form service (Formspree, FormSubmit) that handles email sending externally.
 
+
