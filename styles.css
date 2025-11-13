@@ -3026,11 +3026,28 @@ html {
 
 /* Testimonials Page Styles */
 .testimonials-hero {
-    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    background: url('../img/waves.gif') center center / cover no-repeat;
     color: var(--white);
     padding: 140px 0 80px;
     text-align: center;
     margin-top: 60px;
+    position: relative;
+}
+
+.testimonials-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+.testimonials-hero .container {
+    position: relative;
+    z-index: 1;
 }
 
 .testimonials-hero-content {
