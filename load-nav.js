@@ -2,8 +2,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Determine the correct path to nav.html based on current location
     const currentPath = window.location.pathname;
-    const isSupportPage = currentPath.includes('/support');
-    const navPath = isSupportPage ? '../nav.html' : 'nav.html';
+    const isSubPage = currentPath.includes('/support') || currentPath.includes('/about') || currentPath.includes('/testimonials');
+    const navPath = isSubPage ? '../nav.html' : 'nav.html';
     
     fetch(navPath)
         .then(response => response.text())
@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Update logo link
             const logoLink = document.querySelector('.nav-logo-link');
             if (logoLink) {
-                if (isSupportPage) {
+                if (isSubPage) {
                     logoLink.href = '../';
                 } else {
                     logoLink.href = isIndexPage ? '/' : 'index.html';
@@ -28,17 +28,17 @@ document.addEventListener('DOMContentLoaded', function() {
             navLinks.forEach(link => {
                 if (isIndexPage) {
                     link.href = link.getAttribute('data-href-index');
-                } else if (isSupportPage) {
-                    // On support page, links should go to index.html with anchors
+                } else if (isSubPage) {
+                    // On sub pages, links should go to index.html with anchors
                     link.href = '../' + link.getAttribute('data-href-other');
                 } else {
                     link.href = link.getAttribute('data-href-other');
                 }
             });
             
-            // Update Help link if on support page
+            // Update Help link if on sub page
             const helpLink = document.querySelector('.nav-link[href="support/"]');
-            if (helpLink && isSupportPage) {
+            if (helpLink && isSubPage) {
                 helpLink.href = 'support/';
             }
             
@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileNavLinks.forEach(link => {
                 if (isIndexPage) {
                     link.href = link.getAttribute('data-href-index');
-                } else if (isSupportPage) {
+                } else if (isSubPage) {
                     link.href = '../' + link.getAttribute('data-href-other');
                 } else {
                     link.href = link.getAttribute('data-href-other');

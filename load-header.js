@@ -2,14 +2,14 @@
 (function() {
     // Determine the correct path to header.html based on current location
     const currentPath = window.location.pathname;
-    const isSupportPage = currentPath.includes('/support');
-    const headerPath = isSupportPage ? '../header.html' : 'header.html';
+    const isSubPage = currentPath.includes('/support') || currentPath.includes('/about') || currentPath.includes('/testimonials');
+    const headerPath = isSubPage ? '../header.html' : 'header.html';
     
     fetch(headerPath)
         .then(response => response.text())
         .then(data => {
-            // Update paths in header content if on support page before inserting
-            if (isSupportPage) {
+            // Update paths in header content if on sub page before inserting
+            if (isSubPage) {
                 // Replace relative paths with parent directory paths
                 data = data.replace(/href="(img\/|styles\.css)/g, 'href="../$1');
                 data = data.replace(/href='(img\/|styles\.css)/g, "href='../$1");
@@ -22,4 +22,3 @@
             console.error('Error loading header:', error);
         });
 })();
-

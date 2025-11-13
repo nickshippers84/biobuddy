@@ -2,8 +2,8 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Determine the correct path to footer.html based on current location
     const currentPath = window.location.pathname;
-    const isSupportPage = currentPath.includes('/support');
-    const footerPath = isSupportPage ? '../footer.html' : 'footer.html';
+    const isSubPage = currentPath.includes('/support') || currentPath.includes('/about') || currentPath.includes('/testimonials');
+    const footerPath = isSubPage ? '../footer.html' : 'footer.html';
     
     fetch(footerPath)
         .then(response => response.text())
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
             footerLinks.forEach(link => {
                 if (isIndexPage) {
                     link.href = link.getAttribute('data-href-index');
-                } else if (isSupportPage) {
+                } else if (isSubPage) {
                     const href = link.getAttribute('data-href-other');
                     if (href && !href.startsWith('http') && !href.startsWith('#')) {
                         link.href = '../' + href;
@@ -45,5 +45,3 @@ document.addEventListener('DOMContentLoaded', function() {
             console.error('Error loading footer:', error);
         });
 });
-
-

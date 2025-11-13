@@ -2944,3 +2944,217 @@ html {
         height: 140px;
     }
 }
+
+/* Testimonials Page Styles */
+.testimonials-hero {
+    background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+    color: var(--white);
+    padding: 140px 0 80px;
+    text-align: center;
+    margin-top: 60px;
+}
+
+.testimonials-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.testimonials-hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--white);
+}
+
+.testimonials-hero-subtitle {
+    font-size: 1.25rem;
+    opacity: 0.95;
+    font-weight: 400;
+}
+
+/* Stats Section */
+.testimonials-stats {
+    background-color: var(--white);
+    padding: 60px 0;
+    border-bottom: 1px solid var(--light-gray);
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    text-align: center;
+}
+
+.stat-item {
+    padding: 2rem;
+}
+
+.stat-number {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--primary-blue);
+    margin-bottom: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.stat-label {
+    font-size: 1.125rem;
+    color: var(--text-dark);
+    font-weight: 500;
+}
+
+/* Testimonials Content Section */
+.testimonials-content-section {
+    padding: 80px 0;
+    background-color: #f8f9fa;
+}
+
+.testimonials-content-section:nth-child(even) {
+    background-color: var(--white);
+}
+
+/* Diverse Testimonials Grid */
+.testimonials-grid-diverse {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.testimonial-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.testimonial-card.student {
+    border-top: 4px solid #4CAF50;
+}
+
+.testimonial-card.educator {
+    border-top: 4px solid var(--primary-blue);
+}
+
+.testimonial-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.testimonial-card.student .testimonial-icon {
+    color: #4CAF50;
+}
+
+.testimonial-card.educator .testimonial-icon {
+    color: var(--primary-blue);
+}
+
+.testimonial-stars {
+    text-align: center;
+    margin-bottom: 1rem;
+    color: #FFD700;
+    font-size: 1.25rem;
+}
+
+.testimonial-stars i {
+    margin: 0 2px;
+}
+
+.testimonial-text {
+    font-family: 'Caveat', cursive;
+    font-size: 1.5rem;
+    line-height: 1.6;
+    color: var(--text-dark);
+    margin: 0 0 1.5rem 0;
+    font-weight: 500;
+    text-align: center;
+}
+
+.testimonial-author {
+    text-align: center;
+    font-size: 0.95rem;
+    color: var(--text-light);
+    font-weight: 500;
+    font-style: italic;
+    margin-top: auto;
+}
+
+.testimonial-author a {
+    color: var(--primary-blue);
+    text-decoration: none;
+}
+
+.testimonial-author a:hover {
+    text-decoration: underline;
+}
+
+/* Instagram Section */
+.testimonials-instagram-section {
+    padding: 80px 0;
+    background-color: var(--white);
+}
+
+/* Responsive Design for Testimonials Page */
+@media (max-width: 1024px) {
+    .stats-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+    
+    .stat-number {
+        font-size: 3rem;
+    }
+    
+    .testimonials-grid-diverse {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .testimonials-hero {
+        padding: 120px 0 60px;
+    }
+    
+    .testimonials-hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .testimonials-hero-subtitle {
+        font-size: 1.125rem;
+    }
+    
+    .testimonials-stats {
+        padding: 40px 0;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .stat-number {
+        font-size: 3rem;
+    }
+    
+    .testimonials-content-section {
+        padding: 60px 0;
+    }
+    
+    .testimonials-grid-diverse {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .testimonial-text {
+        font-size: 1.25rem;
+    }
+}
