@@ -2775,7 +2775,7 @@ html {
 
 /* About Page Styles */
 .about-hero {
-    background: url('img/about-circle.jpg') center center / cover no-repeat;
+    background: url('/img/about-circle.jpg') center center / cover no-repeat;
     color: var(--white);
     padding: 140px 0 80px;
     text-align: center;
