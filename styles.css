@@ -3051,6 +3051,11 @@ html {
     font-weight: 400;
 }
 
+.reviews-feedback-cta {
+    margin-top: 2rem;
+    text-align: center;
+}
+
 /* Stats Section */
 .testimonials-stats {
     background-color: var(--white);
