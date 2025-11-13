@@ -2755,6 +2755,13 @@ html {
     margin: 0 auto;
 }
 
+/* Team Grid Container - Full width with margins */
+.team-grid-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
 /* Team Grid - 3 columns */
 .team-grid {
     display: grid;
@@ -2871,6 +2878,10 @@ html {
         padding: 0 30px;
     }
     
+    .team-grid-container {
+        padding: 0 30px;
+    }
+    
     .team-grid,
     .advisors-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -2901,6 +2912,10 @@ html {
     }
     
     .team-section .container {
+        padding: 0 20px;
+    }
+    
+    .team-grid-container {
         padding: 0 20px;
     }
     
