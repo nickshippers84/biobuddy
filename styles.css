@@ -3026,7 +3026,7 @@ html {
 
 /* Testimonials Page Styles */
 .testimonials-hero {
-    background: url('img/waves.gif') center center / cover no-repeat;
+    background: url('img/bubbles.gif') center center / cover no-repeat;
     color: var(--white);
     padding: 140px 0 80px;
     text-align: center;
