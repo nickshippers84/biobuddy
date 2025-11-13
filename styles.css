@@ -2755,6 +2755,8 @@ html {
     grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
     margin-top: 3rem;
+    justify-items: center;
+    align-items: start;
 }
 
 .team-member-card {
@@ -2764,6 +2766,8 @@ html {
     text-align: center;
     box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 320px;
 }
 
 .team-member-card:hover {
@@ -2809,6 +2813,18 @@ html {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin-top: 3rem;
+    justify-items: center;
+    align-items: start;
+}
+
+/* Center the 4th item in advisors grid when it wraps to new row */
+.advisors-grid .advisor-card:nth-child(4) {
+    grid-column: 2;
+}
+
+/* Center the 4th item in curriculum grid when it wraps to new row */
+.curriculum-section .team-grid .team-member-card:nth-child(4) {
+    grid-column: 2;
 }
 
 .advisor-card {
@@ -2818,6 +2834,8 @@ html {
     text-align: center;
     box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    max-width: 300px;
 }
 
 .advisor-card:hover {
@@ -2865,6 +2883,12 @@ html {
         grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
     }
+    
+    /* Reset grid-column for 4th items on tablet */
+    .advisors-grid .advisor-card:nth-child(4),
+    .curriculum-section .team-grid .team-member-card:nth-child(4) {
+        grid-column: auto;
+    }
 }
 
 @media (max-width: 768px) {
@@ -2892,6 +2916,12 @@ html {
     .advisors-grid {
         grid-template-columns: 1fr;
         gap: 2rem;
+    }
+    
+    /* Reset grid-column for 4th items on mobile */
+    .advisors-grid .advisor-card:nth-child(4),
+    .curriculum-section .team-grid .team-member-card:nth-child(4) {
+        grid-column: auto;
     }
     
     .team-member-image {
