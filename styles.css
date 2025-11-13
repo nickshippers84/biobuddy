@@ -1576,6 +1576,9 @@ h1, h2, h3, h4, h5, h6,
     border-radius: 20px;
     font-size: 0.9rem;
     font-weight: 600;
+    text-align: center;
+    width: auto;
+    white-space: nowrap;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
