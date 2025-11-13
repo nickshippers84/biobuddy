@@ -397,6 +397,58 @@ h1, h2, h3, h4, h5, h6,
     line-height: 1.4;
 }
 
+/* Free BioBuddy Alert Banner */
+.free-buddy-alert {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: #fef3c7;
+    padding: 1rem 1.5rem;
+    border-radius: 200px;
+    margin-bottom: 2rem;
+    max-width: 100%;
+}
+
+.alert-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    flex-shrink: 0;
+}
+
+.alert-icon svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.alert-content {
+    flex: 1;
+}
+
+.alert-content span {
+    color: #1f2937;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+.alert-action {
+    color: #2563eb;
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 0.95rem;
+    white-space: nowrap;
+    transition: color 0.2s ease;
+}
+
+.alert-action:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
 .user-toggle {
     display: flex;
     justify-content: center;
@@ -1139,6 +1191,11 @@ h1, h2, h3, h4, h5, h6,
     color: var(--text-light);
     max-width: 600px;
     margin: 0 auto;
+}
+
+.testimonials-cta {
+    margin-top: 2rem;
+    text-align: center;
 }
 
 .features-grid {
@@ -2170,6 +2227,27 @@ h1, h2, h3, h4, h5, h6,
 }
 
 @media (max-width: 768px) {
+    .free-buddy-alert {
+        flex-wrap: wrap;
+        padding: 0.875rem 1rem;
+        gap: 0.75rem;
+        border-radius: 200px;
+    }
+    
+    .alert-content {
+        flex: 1 1 100%;
+        order: 2;
+    }
+    
+    .alert-icon {
+        order: 0;
+    }
+    
+    .alert-action {
+        order: 1;
+        margin-left: auto;
+    }
+    
     .hero-content {
         grid-template-columns: 1fr;
         text-align: center;
