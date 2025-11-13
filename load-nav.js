@@ -42,6 +42,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 helpLink.href = 'support/';
             }
             
+            // Update Reviews link if on sub page
+            const reviewsLink = document.querySelector('.nav-link[href="reviews/"]');
+            if (reviewsLink && isSubPage) {
+                reviewsLink.href = '../reviews/';
+            }
+            
+            // Update Reviews mobile link if on sub page
+            const reviewsMobileLink = document.querySelector('.mobile-nav-link[href="reviews/"]');
+            if (reviewsMobileLink && isSubPage) {
+                reviewsMobileLink.href = '../reviews/';
+            }
+            
             // Update mobile navigation links
             const mobileNavLinks = document.querySelectorAll('.mobile-nav-link[data-href-index]');
             mobileNavLinks.forEach(link => {
