@@ -402,10 +402,10 @@ h1, h2, h3, h4, h5, h6,
     display: flex;
     align-items: center;
     gap: 1rem;
-    background: #fef3c7;
+    background: #fde68a;
     padding: 1rem 1.5rem;
     border-radius: 200px;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     max-width: 100%;
 }
 
