@@ -39,7 +39,13 @@ document.addEventListener('DOMContentLoaded', function() {
             // Update Help link if on sub page
             const helpLink = document.querySelector('.nav-link[href="support/"]');
             if (helpLink && isSubPage) {
-                helpLink.href = 'support/';
+                helpLink.href = '../support/';
+            }
+            
+            // Update Help mobile link if on sub page
+            const helpMobileLink = document.querySelector('.mobile-nav-link[href="support/"]');
+            if (helpMobileLink && isSubPage) {
+                helpMobileLink.href = '../support/';
             }
             
             // Update Reviews link if on sub page
