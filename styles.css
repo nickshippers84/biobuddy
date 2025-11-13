@@ -2724,6 +2724,13 @@ html {
 .team-section {
     padding: 80px 0;
     background-color: var(--white);
+    width: 100%;
+    margin: 0;
+}
+
+.team-section .container {
+    max-width: 1400px;
+    padding: 0 40px;
 }
 
 .team-section:nth-child(even) {
@@ -2754,9 +2761,9 @@ html {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
-    margin-top: 3rem;
-    justify-items: center;
+    margin: 3rem 0 0 0;
     align-items: start;
+    width: 100%;
 }
 
 .team-member-card {
@@ -2766,8 +2773,6 @@ html {
     text-align: center;
     box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 100%;
-    max-width: 320px;
 }
 
 .team-member-card:hover {
@@ -2812,9 +2817,9 @@ html {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
-    margin-top: 3rem;
-    justify-items: center;
+    margin: 3rem 0 0 0;
     align-items: start;
+    width: 100%;
 }
 
 /* Center the 4th item in advisors grid when it wraps to new row */
@@ -2834,8 +2839,6 @@ html {
     text-align: center;
     box-shadow: var(--shadow);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    width: 100%;
-    max-width: 300px;
 }
 
 .advisor-card:hover {
@@ -2878,6 +2881,10 @@ html {
 
 /* Responsive Design for About Page */
 @media (max-width: 1024px) {
+    .team-section .container {
+        padding: 0 30px;
+    }
+    
     .team-grid,
     .advisors-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -2906,6 +2913,10 @@ html {
     
     .team-section {
         padding: 60px 0;
+    }
+    
+    .team-section .container {
+        padding: 0 20px;
     }
     
     .team-section .section-header h2 {
