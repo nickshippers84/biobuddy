@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Determine the correct path to nav.html based on current location
     const currentPath = window.location.pathname;
-    const isSubPage = currentPath.includes('/support') || currentPath.includes('/about') || currentPath.includes('/testimonials');
+    const isSubPage = currentPath.includes('/support') || currentPath.includes('/about') || currentPath.includes('/reviews');
     const navPath = isSubPage ? '../nav.html' : 'nav.html';
     
     fetch(navPath)

@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Determine the correct path to footer.html based on current location
     const currentPath = window.location.pathname;
-    const isSubPage = currentPath.includes('/support') || currentPath.includes('/about') || currentPath.includes('/testimonials');
+    const isSubPage = currentPath.includes('/support') || currentPath.includes('/about') || currentPath.includes('/reviews');
     const footerPath = isSubPage ? '../footer.html' : 'footer.html';
     
     fetch(footerPath)

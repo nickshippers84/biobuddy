@@ -2,7 +2,7 @@
 (function() {
     // Determine the correct path to header.html based on current location
     const currentPath = window.location.pathname;
-    const isSubPage = currentPath.includes('/support') || currentPath.includes('/about') || currentPath.includes('/testimonials');
+    const isSubPage = currentPath.includes('/support') || currentPath.includes('/about') || currentPath.includes('/reviews');
     const headerPath = isSubPage ? '../header.html' : 'header.html';
     
     fetch(headerPath)
